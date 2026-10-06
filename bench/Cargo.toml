@@ -1,0 +1,18 @@
+[package]
+name = "sinew-bench"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "sinew-bench"
+path = "src/main.rs"
+
+[dependencies]
+sinew = { path = ".." }
+rusqlite = { version = "0.40", features = ["bundled"] }
+# Turso's defaults pull in tantivy (fts) and install mimalloc as the global
+# allocator; the bench installs mimalloc itself so every engine shares it.
+turso = { version = "0.8.2", default-features = false }
+pollster = "1"
+mimalloc = { version = "0.1", default-features = false }

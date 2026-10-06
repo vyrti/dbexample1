@@ -1,0 +1,4 @@
+[build]
+# Kernels are written for the build machine's ISA: NEON (+dotprod etc.) on Apple
+# silicon, AVX2/AVX-512 where available on x86-64.
+rustflags = ["-C", "target-cpu=native"]
